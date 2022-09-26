@@ -1,0 +1,225 @@
+﻿info: 9/26/2022 20:45:40.340 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.9 initialized 'BookDBcontext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: None
+..............dbug: 9/26/2022 20:45:40.438 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.828 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.839 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteNonQuery'.
+..............dbug: 9/26/2022 20:45:40.849 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteNonQuery' (8ms).
+..............dbug: 9/26/2022 20:45:40.874 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+..............info: 9/26/2022 20:45:40.902 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+..............dbug: 9/26/2022 20:45:40.906 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.911 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.914 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteScalar'.
+..............dbug: 9/26/2022 20:45:40.915 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteScalar' (0ms).
+..............dbug: 9/26/2022 20:45:40.916 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.917 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.918 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+      IF EXISTS
+          (SELECT *
+           FROM [sys].[objects] o
+           WHERE [o].[type] = 'U'
+           AND [o].[is_ms_shipped] = 0
+           AND NOT EXISTS (SELECT *
+               FROM [sys].[extended_properties] AS [ep]
+               WHERE [ep].[major_id] = [o].[object_id]
+                   AND [ep].[minor_id] = 0
+                   AND [ep].[class] = 1
+                   AND [ep].[name] = N'microsoft_database_tools_support'
+          )
+      )
+      SELECT 1 ELSE SELECT 0
+..............info: 9/26/2022 20:45:40.955 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+      IF EXISTS
+          (SELECT *
+           FROM [sys].[objects] o
+           WHERE [o].[type] = 'U'
+           AND [o].[is_ms_shipped] = 0
+           AND NOT EXISTS (SELECT *
+               FROM [sys].[extended_properties] AS [ep]
+               WHERE [ep].[major_id] = [o].[object_id]
+                   AND [ep].[minor_id] = 0
+                   AND [ep].[class] = 1
+                   AND [ep].[name] = N'microsoft_database_tools_support'
+          )
+      )
+      SELECT 1 ELSE SELECT 0
+..............dbug: 9/26/2022 20:45:40.955 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.957 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:40.959 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'BookDBcontext' disposed.
+..............info: 9/26/2022 20:45:41.023 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.9 initialized 'BookDBcontext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: None
+..............dbug: 9/26/2022 20:45:41.085 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<users>()'
+..............dbug: 9/26/2022 20:45:41.420 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<users>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: users.id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: users.password (string) Required, 1], [Property: users.userName (string) Required, 2] }
+              SELECT u.id, u.password, u.userName
+              FROM users AS u), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, users>, 
+          Book_Data1.BookDBcontext, 
+          False, 
+          False, 
+          True
+      )'
+..............dbug: 9/26/2022 20:45:41.466 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+..............dbug: 9/26/2022 20:45:41.466 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+..............dbug: 9/26/2022 20:45:41.467 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:41.467 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:41.468 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[id], [u].[password], [u].[userName]
+      FROM [users] AS [u]
+..............info: 9/26/2022 20:45:41.538 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (70ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[id], [u].[password], [u].[userName]
+      FROM [users] AS [u]
+..............dbug: 9/26/2022 20:45:41.577 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'users' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:41.621 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+..............dbug: 9/26/2022 20:45:41.621 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:41.622 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:41.622 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'BookDBcontext' disposed.
+..............info: 9/26/2022 20:45:48.015 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.9 initialized 'BookDBcontext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: None
+..............dbug: 9/26/2022 20:45:48.017 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+..............dbug: 9/26/2022 20:45:48.018 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+..............dbug: 9/26/2022 20:45:48.019 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.019 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.020 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[id], [u].[password], [u].[userName]
+      FROM [users] AS [u]
+..............info: 9/26/2022 20:45:48.023 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[id], [u].[password], [u].[userName]
+      FROM [users] AS [u]
+..............dbug: 9/26/2022 20:45:48.024 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'users' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:48.025 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+..............dbug: 9/26/2022 20:45:48.026 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.027 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.027 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'BookDBcontext' disposed.
+..............info: 9/26/2022 20:45:48.029 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.9 initialized 'BookDBcontext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: None
+..............dbug: 9/26/2022 20:45:48.032 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Book>()'
+..............dbug: 9/26/2022 20:45:48.040 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Book>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Book.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Book.Name (string) Required, 1], [Property: Book.numberofcoby (int) Required, 2], [Property: Book.price (int) Required, 3] }
+              SELECT b.Id, b.Name, b.numberofcoby, b.price
+              FROM books AS b), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Book>, 
+          Book_Data1.BookDBcontext, 
+          False, 
+          False, 
+          True
+      )'
+..............dbug: 9/26/2022 20:45:48.042 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+..............dbug: 9/26/2022 20:45:48.044 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (1ms).
+..............dbug: 9/26/2022 20:45:48.044 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.045 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.046 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [b].[Id], [b].[Name], [b].[numberofcoby], [b].[price]
+      FROM [books] AS [b]
+..............info: 9/26/2022 20:45:48.072 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [b].[Id], [b].[Name], [b].[numberofcoby], [b].[price]
+      FROM [books] AS [b]
+..............dbug: 9/26/2022 20:45:48.078 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:48.094 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:48.095 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:48.095 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+..............dbug: 9/26/2022 20:45:48.096 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.096 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:48.097 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'BookDBcontext' disposed.
+..............info: 9/26/2022 20:45:49.606 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.9 initialized 'BookDBcontext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.9' with options: None
+..............dbug: 9/26/2022 20:45:49.607 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+..............dbug: 9/26/2022 20:45:49.608 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).
+..............dbug: 9/26/2022 20:45:49.609 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:49.610 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:49.611 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [b].[Id], [b].[Name], [b].[numberofcoby], [b].[price]
+      FROM [books] AS [b]
+..............info: 9/26/2022 20:45:49.615 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [b].[Id], [b].[Name], [b].[numberofcoby], [b].[price]
+      FROM [books] AS [b]
+..............dbug: 9/26/2022 20:45:49.615 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:49.616 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:49.617 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'BookDBcontext' started tracking 'Book' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+..............dbug: 9/26/2022 20:45:49.619 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.
+..............dbug: 9/26/2022 20:45:49.619 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:49.620 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'BookDb' on server '(localdb)\MSSQLLocalDB'.
+..............dbug: 9/26/2022 20:45:49.622 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'BookDBcontext' disposed.
+..............
